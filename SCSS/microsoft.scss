@@ -1,0 +1,1229 @@
+* {
+    box-sizing: border-box;
+    list-style-type: none;
+    scroll-behavior: smooth;
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', SegoeUI, 'Microsoft JhengHei', 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+
+
+        // ~~~~~~~~~~~~~~~~~~~~~這裡是header~~~~~~~~~~~~~~~~~~~
+        header {
+            width: 100%;
+            height: 56px;
+
+            @media (max-width:860px) {
+                border-bottom: 1px solid #e6e6e6;
+            }
+
+            #nav {
+                padding: 0px 5%;
+                display: flex;
+
+                @media (max-width:1083px) {
+                    padding-left: 24px;
+                    padding-right: 24px;
+
+                }
+
+                nav {
+                    width: 1600px;
+                    margin: 0 auto;
+
+                    @media (max-width:1399px) {
+                        .nav-right {
+                            max-width: 235px;
+
+                            .nav-font {
+                                &:not(.all) {
+                                    display: none;
+                                }
+                            }
+
+                            .search,
+                            .shop {
+                                line-height: 54px;
+                            }
+
+                            .all-menu {
+                                .all-list {
+                                    width: 1210px;
+                                    left: -910px
+                                }
+                            }
+                        }
+
+                    }
+
+                    @media (max-width:1083px) {
+                        padding: 0px 0px;
+                    }
+
+                    height: 100%;
+                    background-color: #fff;
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 13px;
+
+                    .max-width {
+                        max-width: 1600px;
+                        margin: 0 auto;
+                    }
+
+                    .nav-left {
+                        display: flex;
+                        align-items: center;
+                        margin: 0 8px;
+
+
+                        .logo {
+                            width: 108px;
+                            height: 54px;
+                            margin: 0 1%;
+                            background-image: url("../image/logo/nav-logo.png");
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            justify-content: center;
+                            background-position: center center;
+                            cursor: pointer;
+
+                            &:active {
+                                border: 1px dashed #000;
+                            }
+                        }
+
+                        .nav-list {
+                            width: 400px;
+                            height: 54px;
+                            line-height: 54px;
+
+                            @media (max-width:870px) {
+                                ul {
+
+                                    .disappear {
+                                        display: none;
+                                    }
+                                }
+                            }
+
+                            ul {
+                                display: inline;
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                justify-content: space-evenly;
+
+                                // 860px-nav收縮出現的更多選項(收斂Xbox,支援)
+                                .more {
+                                    border: 0;
+                                    background-color: #FFF;
+                                    display: none;
+
+                                    &:focus {
+                                        background-color: #f2f2f2;
+                                        border: 1px dashed #000
+                                    }
+
+                                    &:focus .more-opt {
+                                        display: block;
+                                    }
+
+                                    @media (max-width:870px) {
+                                        display: block;
+                                    }
+
+                                }
+
+                                ul {
+                                    position: relative;
+                                    cursor: pointer;
+
+                                    i {
+                                        font-size: 15px;
+                                        margin-top: 4px;
+                                    }
+
+                                    // 選項單
+                                    ul {
+                                        position: absolute;
+                                        top: 36px;
+                                        left: -7px;
+                                        z-index: 5;
+                                        background-color: #f2f2f2;
+                                        display: block;
+                                        width: 150px;
+                                        line-height: 25px;
+                                        border-radius: 2px;
+                                        display: none;
+
+                                        li {
+                                            height: 50px;
+                                            line-height: 50px;
+
+                                            &:hover {
+                                                background-color: #e6e6e6;
+                                            }
+                                        }
+
+
+                                    }
+                                }
+
+                                a {
+                                    text-decoration: none;
+                                    color: #000;
+                                    position: relative;
+                                    cursor: pointer;
+
+                                    li {
+                                        &::before {
+                                            content: "";
+                                            width: 100%;
+                                            height: 2px;
+                                            background-color: #000;
+                                            border-radius: 10px;
+                                            position: absolute;
+                                            bottom: -6px;
+                                            margin-bottom: 20px;
+
+                                            display: none;
+                                        }
+
+                                    }
+
+                                    &:active {
+                                        border: 1px dashed #000;
+                                    }
+
+                                    &:hover li::before {
+                                        display: block;
+
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                    .nav-right {
+                        width: 400px;
+                        height: 54px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        // 解決點擊後虛線高度不貼合文字,故給予高度
+                        .nav-height {
+                            cursor: pointer;
+                            height: 54px;
+
+                            &:active {
+                                border: 1px dashed #000;
+                            }
+                        }
+
+                        .all-menu {
+
+
+                            position: relative;
+
+                            // 所有Microsoft的點選式表單
+                            .all-list {
+                                margin: 0;
+                                padding: 0;
+                                padding-top: 13px;
+                                width: 1230px;
+                                height: 450px;
+                                z-index: 5;
+                                border: 1px solid #e6e6e6;
+                                border-bottom: 2px solid #000;
+                                position: absolute;
+                                top: 50px;
+                                left: -844px;
+                                background-color: #f2f2f2;
+                                justify-content: space-around;
+                                flex-wrap: wrap;
+                                display: none;
+
+                                //    1399px調整 
+                                @media (max-width:1399px) {
+                                    width: 1210px;
+                                    left: -910px
+                                }
+
+                                @media (max-width:1229px) {
+                                    width: 1025px;
+                                    height: 738px;
+                                    left: -820px;
+                                    justify-content: unset;
+                                }
+
+                                @media (max-width:1083px) {
+                                    width: 1010px;
+                                    left: -760px;
+
+                                }
+
+                                @media (max-width:1032px) {
+                                    width: 820px;
+                                    height: 825px;
+                                    left: -635px;
+                                }
+
+                                @media (max-width:910px) {
+                                    left: -590px;
+                                }
+
+                                ul {
+                                    margin: 0;
+                                    padding: 0;
+
+                                    @media (max-width:1229px) {
+                                        width: calc(100% / 5);
+                                        padding-left: 25px;
+
+                                    }
+
+                                    @media (max-width:1032px) {
+                                        width: calc(100% / 4);
+
+                                    }
+
+                                    .list-title {
+                                        font-weight: bolder;
+                                    }
+
+                                    &:last-child {
+                                        width: 100%;
+                                        height: 38px;
+                                        line-height: 38px;
+                                        text-align: center;
+                                        align-self: flex-end;
+                                        background-color: #e6e6e6;
+
+                                        @media (max-width:1229px) {
+                                            padding: 0;
+                                        }
+
+                                    }
+
+                                    li {
+                                        margin: 0;
+                                        padding: 0;
+                                        margin-top: 25px;
+                                        color: #262626;
+
+                                        &:hover {
+                                            text-decoration: underline;
+                                            cursor: pointer;
+                                        }
+
+                                        &:active {
+                                            border: 1px dashed #000;
+                                        }
+
+                                    }
+                                }
+                            }
+
+                            button {
+                                border: 0;
+                                background-color: unset;
+                                cursor: pointer;
+                            }
+
+                            // 隱藏checkbox 
+                            #list {
+                                display: none;
+
+
+                                // 因為all-list的displayflex會跟displaynone打架,所以flex下在這裡,當點擊到checkbox時all-list的flex會出現
+                                &:checked~.all-list {
+                                    display: flex;
+                                }
+
+                                // 當我點到checkbox時button會變色(~是兄弟選擇器)
+                                &:checked~button {
+                                    background-color: #f2f2f2;
+                                    border: 1px dashed #000;
+
+
+                                }
+
+                                // 當我點選到button裡面的.nav-font時,偽元素底線會消失
+                                &:checked~button .nav-font {
+                                    cursor: pointer;
+
+                                    &::before {
+                                        display: none;
+                                    }
+                                }
+
+                            }
+
+
+                        }
+
+                        // 設置右邊導覽列的文字置中
+                        .nav-font {
+                            margin: 0;
+                            padding: 0;
+                            display: flex;
+                            justify-content: space-around;
+                            position: relative;
+                            display: inline;
+                            padding-right: 5px;
+                            line-height: 54px;
+
+                            // 設置偽元素底線並使其消失
+                            &::before {
+                                content: "";
+                                width: 100%;
+                                height: 2px;
+                                background-color: #000;
+                                border-radius: 10px;
+                                position: absolute;
+                                bottom: -6px;
+                                display: none;
+
+
+                            }
+
+                            // 當hover到導覽列文字時底線才會出來
+                            &:hover::before {
+                                display: block;
+
+                            }
+
+                        }
+
+                        i {
+                            font-size: 15px;
+                        }
+
+                        .user {
+                            display: flex;
+
+                            span {
+                                line-height: 56px;
+                                padding-right: 15px;
+                            }
+
+                            img {
+                                width: 32px;
+                            }
+                        }
+
+                    }
+
+                    @media (max-width:859px) {
+                        .nav-right {
+                            max-width: 80px;
+                            line-height: 54px;
+
+                            .search,
+                            .all-menu {
+                                display: none;
+                            }
+
+                        }
+
+                        .nav-left {
+
+                            .logo {
+                                position: absolute;
+                                left: 50%;
+                                transform: translateX(-50%)
+                            }
+
+                            .nav-list {
+                                display: none;
+                            }
+                        }
+
+                    }
+
+                }
+            }
+
+        }
+
+        // ~~~~~~~~~~~~~~~~~~~~~~~這裡是main~~~~~~~~~~~~~~~~~~~~
+        main {
+            h3 {
+                margin: 0;
+                margin-top: 8px;
+                padding: 4px 8px;
+                font-size: 18px;
+                font-weight: bolder;
+                display: inline-block;
+                background-color: #ffb900;
+
+            }
+
+            h2 {
+                font-size: 1.8125rem;
+                font-weight: 600;
+            }
+
+            #carousel {
+                .carousel {
+                    position: relative;
+                    max-width: 100%;
+                    margin: 0 auto;
+
+                    picture {
+                        cursor: pointer;
+                    }
+
+
+                    .product {
+                        width: 23%;
+                        position: absolute;
+                        top: 15%;
+                        left: 10.5%;
+                        cursor: pointer;
+
+                        .title {
+                            @media (max-width:1399px) {
+                                font-size: 1.8rem;
+                            }
+
+                            @media (max-width:1083px) {
+                                font-size: 1.5rem;
+                            }
+
+                            margin: 0;
+                            font-size: 2.3125rem;
+                            font-weight: 500;
+                        }
+
+                        p {
+                            line-height: 1.5em;
+                        }
+
+                        .learn {
+                            width: 90px;
+                            height: 40px;
+                            border-radius: 2px;
+                            background-color: #0067b8;
+                            display: flex;
+                            justify-content: center;
+                            margin-top: 25px;
+
+                            &:hover {
+                                background-color: #01508d;
+                            }
+
+                            a {
+                                color: #fff;
+                                text-decoration: none;
+                                line-height: 40px;
+                                font-weight: bolder;
+                            }
+                        }
+
+                        // 1083px文字區塊獨立下移
+                        @media (max-width:1083px) {
+                            width: 98%;
+                            height: 225px;
+                            background-color: #fff;
+                            position: static;
+                            filter: drop-shadow(-1px 3px 5px rgba(0, 0, 0, 0.2));
+                            margin: 0 auto;
+
+                        }
+
+                        @media (max-width:860px) {
+                            width: 100%;
+                            height: 225px;
+                            filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.2));
+
+                        }
+
+                        @media (max-width:1083px) {
+                            margin-top: -50px;
+                            padding: 40px 48px;
+
+                        }
+
+                        @media (max-width:860px) {
+                            margin-top: -5px;
+                            padding: 25px 30px;
+
+
+                        }
+
+                    }
+
+                    .product-one {
+                        margin-top: 60px;
+
+                        // 調整1399px輪播圖1的標題字大小與輪播圖2不同
+                        @media (max-width:1399px) {
+                            margin-top: 65px;
+
+                            .title-one {
+                                font-size: 2.3125rem;
+
+                                @media (max-width:1083px) {
+                                    font-size: 1.8125rem;
+                                }
+                            }
+                        }
+
+                        @media (max-width:1083px) {
+                            height: 270px;
+                            margin-top: -50px;
+                            padding: 40px 48px;
+
+                        }
+
+                        @media (max-width:860px) {
+                            margin-top: -5px;
+                            padding: 25px 30px;
+
+                            .title-one {
+                                padding-top: 5px;
+                                font-size: 2rem;
+                            }
+
+                        }
+                    }
+
+
+                    .carousel-controls {
+                        width: 100%;
+                    }
+
+                }
+
+            }
+
+            #three-link {
+                max-width: 100%;
+                margin: 1.5rem 0;
+
+                @media (max-width:860px) {
+                    margin: 0;
+                }
+
+                .three-pad {
+                    display: flex;
+                    justify-content: center;
+
+                    ul {
+                        display: flex;
+                        text-align: center;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        padding: 0;
+
+                        li {
+                            margin: 0px 1.5rem;
+                            margin-left: 20px;
+                            color: #0067b8;
+                            font-weight: 600;
+
+                            p:active {
+                                border: 3px dotted;
+                                color: #0067b8;
+                            }
+
+                        }
+
+                        a {
+                            text-decoration-color: #0067b8;
+                        }
+
+                    }
+                }
+
+            }
+
+            // 卡組一號
+            #four-card {
+                margin: 3rem 0;
+
+                @media (max-width:860px) {
+                    margin: 0;
+                }
+
+                .contant-card {
+                    max-width: 1600px;
+                    padding: 0px 5%;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: center;
+                    box-sizing: content-box;
+
+                    @media (max-width:1083px) {
+                        padding: 0;
+                        flex-wrap: wrap;
+                    }
+
+
+                    .ad-card {
+                        width: calc(100% / 4);
+                        height: 449px;
+                        padding-right: 0.75rem;
+                        padding-left: 0.75rem;
+                        cursor: pointer;
+
+                        @media (max-width:1399px) {
+                            h2 {
+                                font-size: 1.5rem;
+                            }
+                        }
+
+                        // 1083PX變成2個卡片並列排序
+                        @media (max-width:1083px) {
+                            width: calc(100% / 2);
+                            margin-bottom: 3rem;
+                        }
+
+                        
+                        @media (max-width:860px) {
+                            margin-bottom: 0;
+                        }
+                        @media (max-width:539px) {
+                            flex:0 0 100%;
+                            margin-bottom: 50px;
+                        }
+
+                        .card-footer {
+                            margin-top: 20px;
+                            color: #0067b8;
+
+                            .link-group {
+
+                                a {
+                                    text-decoration: none;
+                                    font-weight: 600;
+                                    margin-right: 1.3rem;
+                                    margin-bottom: 1rem;
+                                    display: inline-block;
+
+                                    i {
+                                        transition: 0.3s;
+                                    }
+
+                                    &:visited {
+                                        color: #0067b8;
+                                    }
+
+                                    &:hover {
+                                        text-decoration: underline;
+
+                                        i {
+                                            transition: 0.3s;
+                                            transform: translateX(3px);
+                                        }
+                                    }
+
+                                    &:active {
+                                        border: 3px dotted;
+                                    }
+
+                                }
+                            }
+
+                            .newline {
+                                flex-direction: column;
+
+                                a {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
+            // 大圖二號
+            #container {
+                margin: 3rem 0;
+                display: flex;
+                justify-content: center;
+                cursor: pointer;
+
+                @media (max-width:860px) {
+                    margin: 0;
+                }
+
+                .card-banner-box {
+                    max-width: 1600px;
+                    padding: 0px 5%;
+                    margin: 0 auto;
+                    box-sizing: content-box;
+                    position: relative;
+
+                    .card-banner {
+                        top: 15%;
+                        padding-bottom: 15px;
+                        padding: 0 0.75rem;
+
+                        .product {
+                            width: 26%;
+                            position: absolute;
+                            top: 34%;
+                            left: 8%;
+
+                            @media (max-width:1083px) {
+                                width: 98%;
+                                height: 225px;
+                                background-color: #fff;
+                                position: static;
+                                filter: drop-shadow(-1px 3px 5px rgba(0, 0, 0, 0.2));
+                                margin: 0 auto;
+                                margin-top: -50px;
+                                padding: 40px 48px;
+                            }
+
+                            @media (max-width:860px) {
+                                width: 100%;
+                                filter: none;
+                                margin-top: 0px;
+                                padding: 35px 15px;
+                            }
+
+                            .title {
+                                margin: 0;
+                                font-size: 2.3125rem;
+                                font-weight: 500;
+
+                                @media (max-width:1399px) {
+                                    font-size: 1.8rem;
+                                }
+
+                                @media (max-width:1083px) {
+                                    font-size: 1.5rem;
+                                }
+
+                            }
+
+                            p {
+                                line-height: 1.5em;
+                            }
+
+                            .learn {
+                                width: 90px;
+                                height: 40px;
+                                border-radius: 2px;
+                                background-color: #0067b8;
+                                display: flex;
+                                justify-content: center;
+                                margin-top: 25px;
+
+                                &:hover {
+                                    background-color: #01508d;
+                                }
+
+
+
+                                a {
+                                    color: #fff;
+                                    text-decoration: none;
+                                    line-height: 40px;
+                                    font-weight: bolder;
+                                }
+                            }
+                        }
+
+                    }
+
+                    // 1083px大圖2左右無留白
+                    @media (max-width:1083px) {
+                        padding: 0;
+
+                        .card-banner {
+                            padding: 0;
+                        }
+
+                    }
+                }
+            }
+
+            // 卡組二號
+            #layout-container {
+                margin: 5rem 0;
+
+                @media (max-width:860px) {
+                    margin: 1.5rem 0;
+                    margin-bottom: 120px;
+                }
+
+                .latout-card-box {
+                    max-width: 1600px;
+                    padding: 0px 5%;
+                    margin: 0 auto;
+                    margin-right: auto;
+                    box-sizing: content-box;
+
+                    .layout-title {
+
+                        padding: 0px 0.5rem;
+                        font-size: 25px;
+
+                        h2 {
+                            padding: 0;
+                            margin: 0;
+                            margin-bottom: 1.25rem;
+                            font-size: 2.3125rem;
+
+                            @media (max-width:1399px) {
+
+                                font-size: 1.8125rem;
+
+                            }
+
+                        }
+
+                    }
+
+                    .layout-card {
+                        display: flex;
+                        justify-content: space-between;
+
+
+                        .ad-card {
+                            width: calc((1600px / 4));
+                            height: 449px;
+                            padding-left: 12px;
+                            padding-right: 12px;
+                            font-family: inherit;
+                            cursor: pointer;
+
+                            .card-header {
+                                height: 25px;
+                            }
+
+                            .card-body {
+                                @media (max-width:1399px) {
+                                    h2 {
+                                        font-size: 1.5rem;
+                                    }
+                                }
+                            }
+
+                            .card-footer {
+                                margin-top: 20px;
+                                color: #0067b8;
+
+                                .link-group {
+                                    display: flex;
+
+                                    a {
+                                        text-decoration: none;
+                                        margin-right: 2rem;
+                                        font-weight: 600;
+
+                                        i {
+                                            transition: 0.3s;
+                                        }
+
+                                        &:visited {
+                                            color: #0067b8;
+                                        }
+
+                                        &:hover {
+                                            text-decoration: underline;
+
+                                            i {
+                                                transition: 0.3s;
+                                                margin-left: 5px;
+                                            }
+                                        }
+
+                                        &:active {
+                                            border: 3px dotted;
+                                        }
+
+                                    }
+                                }
+
+                                .newline {
+                                    flex-direction: column;
+
+                                    a {
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    .focus {
+                        padding: 0px 1rem;
+
+                        ul {
+                            padding: 0px;
+                            margin-right: 10px;
+                        }
+                    }
+
+                    ul li {
+                        display: inline;
+                        color: #000;
+                        margin: 0 10px;
+
+
+                        i {
+                            font-size: 25px;
+                        }
+
+                    }
+
+                    a {
+                        display: inline-block;
+
+
+                        &:focus {
+                            border: 4px dotted #0067b8;
+
+                        }
+
+                    }
+
+                    @media (max-width:1083px) {
+                        padding: 0;
+
+                        .layout-title {
+                            h2 {
+                                font-size: 1.5rem;
+                                margin-bottom: 8px;
+                                margin-left: 2.5px;
+                            }
+
+                            @media (max-width:860px) {
+                                h2 {
+                                    margin-bottom: 10px;
+                                    margin-left: 2px;
+
+                                }
+                            }
+                        }
+
+                        .layout-card {
+                            flex-wrap: wrap;
+
+                            .ad-card {
+                                width: calc(100% / 2);
+                                margin-bottom: 3rem;
+
+                                .card-body {
+                                    h2 {
+                                        font-size: 1.3125rem;
+                                    }
+                                }
+
+                                @media (max-width:860px) {
+                                    margin: 0;
+                                }
+                                @media (max-width:539px) {
+                                    flex:0 0 100%;
+                                    margin-bottom: 50px;
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+            }
+
+
+            .float-button {
+               
+                button {
+                    position: sticky;
+                    right: 10px;
+                    bottom: 1%;
+                    margin-top: -6em;
+                    float: right;
+                    width: 110px;
+                    height: 45px;
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: 700;
+                    border: none;
+                    border-radius: 3px;
+                    background-color: #dadada;
+
+                    &:hover {
+                        background-color: #FFF;
+                        cursor: pointer;
+                        filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3))
+                    }
+
+                    &:active {
+                        border: 3px dotted #000;
+                    }
+
+                    // @media (max-width:539px) {
+                    //    width: 90%;
+                     
+                    // }
+
+
+                }
+                @media (max-width:539px) {
+                    a{
+                        display: flex;
+                        justify-content: center;
+                        button{
+                            width: 90%;
+                        }
+                    }
+                    
+                }
+            }
+
+
+
+        }
+
+        // ~~~~~~~~~~~~~~~~~~~~這裡是FOOTER~~~~~~~~~~~~~~~~~~~~~~
+        footer {
+            background-color: #f2f2f2;
+            color: #616161;
+
+            .footer-nav {
+                display: flex;
+                justify-content: space-around;
+                font-size: 20px;
+                padding: 0 5%;
+
+                ul {
+                    margin: 0;
+                    margin-top: 25px;
+                    width: 320px;
+                    padding: 0;
+                    font-size: 15px;
+
+                    a {
+                        display: block;
+                        margin: 0;
+                        padding: 0;
+                        text-decoration: none;
+
+                        color: #616161;
+
+                        &:hover {
+                            text-decoration: underline;
+                            color: #262626;
+                        }
+                    }
+
+
+
+                    p {
+                        margin: 0;
+                        padding: 10px 0px;
+                        font-weight: 600;
+                    }
+
+                    li {
+                        font-size: 11px;
+                        padding: 8px 0px;
+                        white-space:nowrap;
+                    }
+                }
+
+                @media (max-width:1083px) {
+                    flex-wrap: wrap;
+                    padding: 0 12px;
+                   
+                   
+
+                    ul {
+                        width: calc(100% / 3);
+                        padding: 0 12px;
+                        @media (max-width:539px) {
+                            flex:0 0 100%;
+                           }
+                    }
+                }
+             
+            }
+
+            .footer-menu {
+                max-width: calc(1600px + 10%);
+                padding: 30px 5% 16px;
+                font-size: 11px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                
+
+                @media (max-width:1083px) {
+                    padding: 30px 24px 16px
+                  
+                }
+
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    margin: 5px;
+                    display: flex;
+
+                    a {
+                        text-decoration: none;
+                        color: #616161;
+
+                        &:hover {
+                            text-decoration: underline;
+                            color: #262626;
+                        }
+                    }
+
+                    li {
+                        display: inline;
+                        padding: 0px 8px;
+                        white-space:nowrap;
+                        
+                    }
+
+                    i {
+                        font-size: 20px;
+                        margin-right: 10px;
+                    }
+                }
+                .lacale-linK{
+                    display: block ;
+                    float: left;
+                }
+                .footer-link{
+                    display: block;
+                }
+                
+                @media (max-width:539px){
+                    height: unset;
+                    flex-wrap: wrap;
+                    display: block;
+                    padding: 30px 24px 16px;
+                    ul{ flex-wrap: wrap;
+                        a{
+                            padding: 0;
+                            margin: 0;
+                            display: inline-block;
+                            padding-top: 5px;
+                        }
+                        li{
+                            padding: 0;
+                            padding-right: 8px;
+                            padding-top: 5px;
+                
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
